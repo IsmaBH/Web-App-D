@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+	<display-name>Ejemplos</display-name>
+	<description>
+		Uso de Servlets en diferentes ejemplos
+	</description>
+	<!-- con la etiqueta servlet-name indicamos el nombre que le daremos en el navegador al servlet, con servlet-class indicamos el nombre de la clase del servlet-->
+	<servlet>
+		<servlet-name>HolaMundo</servlet-name>
+		<servlet-class>HolaMundo</servlet-class>
+	</servlet>
+	<!--Con la etiqueta servlet-mapping indicamos que para llamar al servlet HolaMundo (esto se hace con <servlet-name>HolaMundo</servlet-name>) hay que hacerlo a través de un directorio virtual esto se hace con <url-pattern>/HolaMundo</url-pattern>)
+	Hay que aclarar que el / Que se añade al HolaMundo es el como se añadira en la url
+	en el HTML o JSP no debe ponerse-->
+	<servlet-mapping>
+		<servlet-name>HolaMundo</servlet-name>
+		<url-pattern>/HolaMundo</url-pattern>
+	</servlet-mapping>
+</web-app>

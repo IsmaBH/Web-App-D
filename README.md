@@ -11,3 +11,6 @@ Raiz
     |-->Archivos JAR de los que dependa la aplicación
     |-->/classes
     |-->Aqui se guardan los servlets o cualquier otra clase
+Recordar que en el directorio /classes solo deben ir los .class y no los .java
+pero por propositos de aprendizaje se anexaran en este directorio los codigos fuente
+y no los .class, para probar estas practicas hay que compilar los .java que se suban
