@@ -10,11 +10,19 @@
 		<servlet-name>HolaMundo</servlet-name>
 		<servlet-class>HolaMundo</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ExtParam</servlet-name>
+		<servlet-class>ExtParam</servlet-class>
+	</servlet>
 	<!--Con la etiqueta servlet-mapping indicamos que para llamar al servlet HolaMundo (esto se hace con <servlet-name>HolaMundo</servlet-name>) hay que hacerlo a través de un directorio virtual esto se hace con <url-pattern>/HolaMundo</url-pattern>)
 	Hay que aclarar que el / Que se añade al HolaMundo es el como se añadira en la url
 	en el HTML o JSP no debe ponerse-->
 	<servlet-mapping>
 		<servlet-name>HolaMundo</servlet-name>
 		<url-pattern>/HolaMundo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ExtParam</servlet-name>
+		<url-pattern>/ExtParam</url-pattern>
 	</servlet-mapping>
 </web-app>
