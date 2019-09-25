@@ -14,6 +14,14 @@
 		<servlet-name>ExtParam</servlet-name>
 		<servlet-class>ExtParam</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>RedireccionA</servlet-name>
+		<servlet-class>RedireccionA</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RedireccionB</servlet-name>
+		<servlet-class>RedireccionB</servlet-class>
+	</servlet>
 	<!--Con la etiqueta servlet-mapping indicamos que para llamar al servlet HolaMundo (esto se hace con <servlet-name>HolaMundo</servlet-name>) hay que hacerlo a través de un directorio virtual esto se hace con <url-pattern>/HolaMundo</url-pattern>)
 	Hay que aclarar que el / Que se añade al HolaMundo es el como se añadira en la url
 	en el HTML o JSP no debe ponerse-->
@@ -24,5 +32,13 @@
 	<servlet-mapping>
 		<servlet-name>ExtParam</servlet-name>
 		<url-pattern>/ExtParam</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RedireccionA</servlet-name>
+		<url-pattern>/RedireccionA</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RedireccionB</servlet-name>
+		<url-pattern>/RedireccionB</url-pattern>
 	</servlet-mapping>
 </web-app>
