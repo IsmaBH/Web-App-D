@@ -38,6 +38,14 @@
 		<servlet-name>DelegacionB</servlet-name>
 		<servlet-class>DelegacionB</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DelegacionAttr</servlet-name>
+		<servlet-class>DelegacionAttr</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AttrB</servlet-name>
+		<servlet-class>AttrB</servlet-class>
+	</servlet>
 	<!--Con la etiqueta servlet-mapping indicamos que para llamar al servlet HolaMundo (esto se hace con <servlet-name>HolaMundo</servlet-name>) hay que hacerlo a través de un directorio virtual esto se hace con <url-pattern>/HolaMundo</url-pattern>)
 	Hay que aclarar que el / Que se añade al HolaMundo es el como se añadira en la url
 	en el HTML o JSP no debe ponerse-->
@@ -72,5 +80,13 @@
 	<servlet-mapping>
 		<servlet-name>DelegacionB</servlet-name>
 		<url-pattern>/DelegacionB</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DelegacionAttr</servlet-name>
+		<url-pattern>/DelegacionAttr</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AttrB</servlet-name>
+		<url-pattern>/AttrB</url-pattern>
 	</servlet-mapping>
 </web-app>
