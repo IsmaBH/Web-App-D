@@ -1,62 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app>
-	<display-name>Ejemplos</display-name>
+	<display-name>MVC-Uso</display-name>
 	<description>
-		Uso de Servlets en diferentes ejemplos
+		Manejo de JSP y servlets para la implementacion del MVC
 	</description>
 	<!-- con la etiqueta servlet-name indicamos el nombre que le daremos en el navegador al servlet, con servlet-class indicamos el nombre de la clase del servlet-->
 	<servlet>
 		<servlet-name>HolaMundo</servlet-name>
 		<servlet-class>HolaMundo</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ExtParam</servlet-name>
-		<servlet-class>ExtParam</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>RedireccionA</servlet-name>
-		<servlet-class>RedireccionA</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>RedireccionB</servlet-name>
-		<servlet-class>RedireccionB</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Error</servlet-name>
-		<servlet-class>Error</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Alcance</servlet-name>
-		<servlet-class>Alcance</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Delegacion</servlet-name>
-		<servlet-class>Delegacion</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>DelegacionB</servlet-name>
-		<servlet-class>DelegacionB</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>DelegacionAttr</servlet-name>
-		<servlet-class>DelegacionAttr</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>AttrB</servlet-name>
-		<servlet-class>AttrB</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Inclusion</servlet-name>
-		<servlet-class>Inclusion</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>InclusionB</servlet-name>
-		<servlet-class>InclusionB</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Sesion</servlet-name>
-		<servlet-class>Sesion</servlet-class>
 	</servlet>
 	<!--Con la etiqueta servlet-mapping indicamos que para llamar al servlet HolaMundo (esto se hace con <servlet-name>HolaMundo</servlet-name>) hay que hacerlo a través de un directorio virtual esto se hace con <url-pattern>/HolaMundo</url-pattern>)
 	Hay que aclarar que el / Que se añade al HolaMundo es el como se añadira en la url
@@ -65,52 +17,25 @@
 		<servlet-name>HolaMundo</servlet-name>
 		<url-pattern>/HolaMundo</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ExtParam</servlet-name>
-		<url-pattern>/ExtParam</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>RedireccionA</servlet-name>
-		<url-pattern>/RedireccionA</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>RedireccionB</servlet-name>
-		<url-pattern>/RedireccionB</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Error</servlet-name>
-		<url-pattern>/Error</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Alcance</servlet-name>
-		<url-pattern>/Alcance</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Delegacion</servlet-name>
-		<url-pattern>/Delegacion</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>DelegacionB</servlet-name>
-		<url-pattern>/DelegacionB</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>DelegacionAttr</servlet-name>
-		<url-pattern>/DelegacionAttr</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>AttrB</servlet-name>
-		<url-pattern>/AttrB</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Inclusion</servlet-name>
-		<url-pattern>/Inclusion</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>InclusionB</servlet-name>
-		<url-pattern>/InclusionB</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Sesion</servlet-name>
-		<url-pattern>/Sesion</url-pattern>
-	</servlet-mapping>
+	<!--Aqui vamos a mapear los filtros que vayamos haciendo, la estructura es similar
+	la declaracion de los servlets, las nuevas etiquetas son: <filter-name>,
+	<filter-class>, <init-param>, <param-name>, <param-value> y <filter-mapping>
+	colocados de la siguiente manera -->
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>LogFilter</filter-class>
+
+		<init-param>
+			<param-name>test-param</param-name>
+			<param-value>Initialization Parameter</param-value>
+		</init-param>
+	</filter>
+	<!-- Aqui comienza el mapeo de los filtros -->
+	<!-- como nota adicional los filtros se aplicaran en el orden en que esten escritos de esta
+	     seccion -->
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 </web-app>
