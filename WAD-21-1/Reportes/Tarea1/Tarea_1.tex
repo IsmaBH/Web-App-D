@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{graphicx}
 \begin{document}
 	\begin{titlepage}
 		\centering
@@ -33,5 +34,123 @@
 	\section{Desarrollo}
 		Esta guiá se realizo en un entorno UNIX/Ubuntu por lo que habrá alguno términos que son particulares de la distribución.
 		\subsection{Instalación de Java}
-		
+		Lo primero a realizar la instalación de Java en el sistema operativo, para esto abrimos una terminal y tecleamos el siguiente comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/Java_cmd.png}
+			\caption{Comando de Instalación de Java}
+		\end{figure}
+		Esto nos instalara los paquetes necesarios para el uso de Tomcat y Netbeans.
+		\subsection{Comando curl}
+		El siguiente paso es la instalación del comando curl, este no esta por defecto en la instalación de Ubuntu 20.04 asi que la instalaremos con el siguiente comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/curl_cmd.png}
+			\caption{Comando de intalación de curl}
+		\end{figure}
+		Este comando es relevante para el paso que sigue.
+		\subsection{Descarga e Instalación}
+		Ahora continuamos con la descarga e instalación de Apache-Tomcat, lo primero sera posicionarnos en el directorio tmp mediante el comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/tmp_cmd.png}
+			\caption{Comando cd a tmp}
+		\end{figure}
+		Esto se hace con la intención de que cuando terminemos la instalación no necesitemos borrar manualmente los archivos descargados del instalador.\\
+		Ahora utilizamos el comando curl que instalamos antes de la siguiente manera:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.3]{/home/diego/Imágenes/Tarea1/descarga_cmd.png}
+			\caption{Comando de descarga}
+		\end{figure}
+		\newpage
+		La estructura es simple, primero el comando a utilizar, en este caso curl, luego el modificador -O que lo que hace es guardar el archivo en el directorio de trabajo actual con el mismo nombre de archivo que el remoto y todo eso seguido de la ruta https del archivo a descargar.\\
+		Lo siguiente es la creación del directorio donde instalaremos tomcat y posteriormente el desempaquetado del archivo que acabamos de descargar, todo esto lo haremos mediante dos comandos que se presentan a continuación.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/directorio_cmd.png}
+			\caption{Comando de creación de directorio}
+		\end{figure}
+		\\Y ahora el comando de instalación:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/instalacion_cmd.png}
+			\caption{Comando de instalación o desempaquetado}
+		\end{figure}
+		\subsection{Permisos}
+		Es importante recordar que se tienen que otorgar los permisos de ejecución para los archivos de tomcat o no podrá iniciar, para esto debemos posicionarnos en el directorio de instalación de tomcat y teclear los siguientes comandos:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/permisos_cmd.png}
+			\caption{Comando de permisos}
+		\end{figure}
+		Y con eso terminamos el paso de otorgamiento de permisos.
+		\newpage
+		\subsection{Creación de archivo de servicio systemd}
+		Nos convendrá poder ejecutar Tomcat como servicio; por ello, configuraremos el servicio systemd, tomcat necesita saber dónde está instalado Java. Esta ruta se denomina comúnmente “JAVA HOME”. Ahora para poder crear el archivo utilizaremos el editor nano integrado en la instalación de Ubuntu mediante el comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/servicio_cmd.png}
+			\caption{Comando de nano}
+		\end{figure}
+		\\Y dentro de este archivo recien creado escribimos lo siguiente:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.3]{/home/diego/Imágenes/Tarea1/servicio_texto.png}
+			\caption{Comando de nano}
+		\end{figure}
+		\\La variable de "JAVA HOME" puede variar según como se haya instalado, si es diferente se cambia en el archivo antes mencionado. Al terminar guardamos y cerramos el archivo, después es necesario volver a cargar el daemon-systemd para que reciba información sobre nuestro archivo de servicio, esto mediante el siguiente comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/daemonr_cmd.png}
+			\caption{Comando daemon}
+		\end{figure}
+		\newpage
+		Ahora iniciamos el servicio de tomcat mediante el comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/tomcats_cmd.png}
+			\caption{Comando start}
+		\end{figure}
+		\\Y por ultimo revisamos el status del servicio con:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/status_cmd.png}
+			\caption{Comando status}
+		\end{figure}
+		\\Si todo a salido bien con la instalación debemos ver una pantalla similar a la siguiente:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/activet_cmd.png}
+			\caption{Tomcat iniciado}
+		\end{figure}
+		\newpage
+		\subsection{Configuración del firewall}
+		Antes de mostrar la pagina principal de tomcat debemos realizar ajustes en el firewall para permitir que nuestras solicitudes lleguen al servicio. Si cumplió con los requisitos previos, en este momento dispondrá de un firewall ufw habilitado. Tomcat utiliza el puerto 8080 para aceptar solicitudes convencionales. \\
+		Permita el tráfico hacia este puerto escribiendo lo siguiente:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Tarea1/ufw_cmd.png}
+			\caption{Comando ufw}
+		\end{figure}
+		\\Ahora si todo es correcto e introducimos la dirección de nuestro dominio, en este caso localhost 127.0.0.1:8080, podremos ver la siguiente pantalla de bienvenida:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.3]{/home/diego/Imágenes/Tarea1/tomcatB.png}
+			\caption{Pantalla de bienvenida}
+		\end{figure}
+		\newpage
+		\subsection{Interfaz de administración web}
+		Como ultimo paso configuramos las credenciales de acceso para la interfaz de administración web de Tomcat esto lo hacemos editando el archivo tomcat-users.xml en el que podemos encontrar comentadas las lineas de usuarios de tomcat, quitamos los comentarios y escribimos los usuarios que podrán acceder al servidor, debe quedarnos un archivo como se muestra a continuación:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.3]{/home/diego/Imágenes/Tarea1/tomcatU.png}
+			\caption{Usuarios de tomcat}
+		\end{figure}
+		\\En este ejemplo usamos un password muy sencillo pero es recomendable poner uno más seguro.
+	\section{Conclusiones}
+	Al final fue un poco dificil configurar el contenedor web Tomcat en conjunto con el IDE apache-Netbeans pero fueron detalles menores, siguiendo los pasos el servidor por si solo fue sencillo de instalar y de usar.
+	\section{Referencias}
+	Cómo instalar Apache Tomcat 9 en Ubuntu 18.04\\
+	2020J. Ellingwood.DigitalOcean Community
 \end{document} 
