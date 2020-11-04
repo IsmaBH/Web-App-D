@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+	\begin{titlepage}
+		\centering
+		{\bfseries\LARGE Instituto Politécnico Nacional \par}
+		\vspace{1cm}
+		{\scshape\Large Escuela Superior de Computo \par}
+		\vspace{3cm}
+		{\scshape\Huge Instalar Heroku CLI \par}
+		\vspace{3cm}
+		{\itshape\Large Web App Development \par}
+		\vfill
+		{\Large Profesor: \par}
+		{\Large M. en C. José Asunción Enríquez Zárate \par}
+		\vspace{1cm}
+		{\Large Autor: \par}
+		{\Large Barón Hernández Diego Ismael \par}
+		\vfill
+		{\Large 3CM9 \par}
+	\end{titlepage}
+	\newpage
+	\tableofcontents
+	\newpage
+	\section{Introducción}
+		La interfaz de línea de comandos de Heroku (CLI) facilita la creación y administración de sus aplicaciones de Heroku directamente desde el terminal. Es una parte esencial del uso de Heroku.
+	\section{Conceptos}
+		\subsection{Cliente}
+			Es un sistema local que facilita el manejo de, en este caso, la aplicación de Heroku desde una terminal UNIX.
+	\section{Desarrollo}
+		Esta guiá se realizo en un entorno UNIX/Ubuntu por lo que habrá alguno términos que son particulares de la distribución.
+		\subsection{Instalación de Heroku CLI}
+		Lo primero a realizar es la instalación mediante el siguiente comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Actividad3/instalacion_cmd.png}
+			\caption{Comando de Instalación}
+		\end{figure}
+		Esto al terminar nos mostrara el siguiente mensaje en la terminal:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Actividad3/instalacionc_cmd.png}
+			\caption{Resultado de instalación}
+		\end{figure}
+		\subsection{Verificar la instalación}
+		Ahora debemos comprobar que se haya instalado correctamente y la versión mediante el comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Actividad3/version_cmd.png}
+			\caption{Comando de version}
+		\end{figure}
+		\\Lo que debe darnos una respuesta en la terminal como la que sigue:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Actividad3/vresponse_cmd.png}
+			\caption{Respuesta del comando version}
+		\end{figure}
+		\subsection{Credenciales}
+		Ahora debemos configurar nuestras credenciales de acceso lo haremos mediante consola con el comando:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.5]{/home/diego/Imágenes/Actividad3/credenciales_cmd.png}
+			\caption{Comando de credenciales}
+		\end{figure}
+		\\En nuestro caso el resultado de este comando nos queda de la siguiente manera:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.3]{/home/diego/Imágenes/Actividad3/rcredenciales_cmd.png}
+			\caption{Comando de descarga}
+		\end{figure}
+	\section{Conclusiones}
+	Dado que trabaja en conjunto con el cliente de GIT es logico concluir que nos ayudara bastante para el desarrollo de nuestras aplicaciones de manera local para después publicarlas.
+	\section{Referencias}
+	https://devcenter.heroku.com/articles/heroku-cli
+\end{document} 

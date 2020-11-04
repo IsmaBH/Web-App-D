@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introducción}{2}%
+\contentsline {section}{\numberline {2}Conceptos}{2}%
+\contentsline {subsection}{\numberline {2.1}Características principales}{2}%
+\contentsline {section}{\numberline {3}Desarrollo}{2}%
+\contentsline {subsection}{\numberline {3.1}Registro}{3}%
+\contentsline {subsection}{\numberline {3.2}Confirmación del correo}{4}%
+\contentsline {subsection}{\numberline {3.3}Contraseña}{4}%
+\contentsline {subsection}{\numberline {3.4}Bienvenida}{5}%
+\contentsline {section}{\numberline {4}Conclusiones}{5}%
+\contentsline {section}{\numberline {5}Referencias}{6}%

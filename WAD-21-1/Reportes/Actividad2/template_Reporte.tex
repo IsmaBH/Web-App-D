@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+	\begin{titlepage}
+		\centering
+		{\bfseries\LARGE Instituto Politécnico Nacional \par}
+		\vspace{1cm}
+		{\scshape\Large Escuela Superior de Computo \par}
+		\vspace{3cm}
+		{\scshape\Huge Registro en Heroku \par}
+		\vspace{3cm}
+		{\itshape\Large Web App Development \par}
+		\vfill
+		{\Large Profesor: \par}
+		{\Large M. en C. José Asunción Enríquez Zárate \par}
+		\vspace{1cm}
+		{\Large Autor: \par}
+		{\Large Barón Hernández Diego Ismael \par}
+		\vfill
+		{\Large 3CM9 \par}
+	\end{titlepage}
+	\newpage
+	\tableofcontents
+	\newpage
+	\section{Introducción}
+		Heroku es uno de los PaaS (Platform as a Service) más utilizados en la actualidad en entornos empresariales por su fuerte enfoque en resolver el despliegue de una aplicación. Ademas te permite manejar los servidores y sus configuraciones, escalamiento y la administración.
+	\section{Conceptos}
+		\subsection{Características principales}
+			Las principales características se listan a continuación:
+			\begin{itemize}
+				\item En Heroku el código corre siempre dentro de un dyno que es el que proporciona a la plataforma la capacidad de computo, es un proceso que puede usarse para ejecutar contenido web, para ejecutar procesos batch, etc.
+				\item Los dynos garantiza la escalabilidad en caso de que una aplicación se convierta en viral (automáticamente se levantan varios dynos)
+				\item Los Dynos pueden ser de tres tipos: web, worker o cron.
+					\begin{itemize}
+						\item WEB: se encarga del desarrollo de la aplicación web.
+						\item WORKER: ejecuta la base de datos.
+						\item CRON: se emplea para procesos de corta vida o conexiones Secure Shell (interprete de órdenes seguro).
+					\end{itemize}
+				\item Los dynos aíslan de comunidades SSL, enrutamiento o blanqueo.
+				\item Heroku es “poliglota”, es decir, Heroku permite la utilización de diferentes lenguajes de programación.
+				\item Heroku internamente se apoya en GitHub, pero no es necesario realizar pagos adicionales.
+				\item Las aplicaciones Java en Heroku, no necesitan un contenedor servlets.
+			\end{itemize} 
+	\section{Desarrollo}
+		Esta guiá se realizo en un entorno UNIX/Ubuntu por lo que habrá alguno términos que son particulares de la distribución.
+		\newpage
+		\subsection{Registro}
+		Lo primero fue registrarnos en la plataforma de Heroku mediante la liga proporcionada y llenando el formulario como sigue:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.3]{/home/diego/Imágenes/Actividad2/registro.png}
+			\caption{Pantalla de registro en Heroku}
+		\end{figure}
+		\newpage
+		\subsection{Confirmación del correo}
+		Una vez llenado y enviado el formulario nos pedirá que confirmemos nuestra cuenta mediante el enlace enviado al correo electrónico:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.4]{/home/diego/Imágenes/Actividad2/confirmacion.png}
+			\caption{Pantalla de aviso de confirmación requerida}
+		\end{figure}
+		\subsection{Contraseña}
+		Una vez completada la confirmación se nos pedirá que creemos una contraseña para la cuenta de Heroku, claro es mejor una contraseña que siga las recomendaciones que nos aparecen en la pantalla:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.4]{/home/diego/Imágenes/Actividad2/pws_conf.png}
+			\caption{Pantalla de contraseña}
+		\end{figure}
+		\newpage
+		\subsection{Bienvenida}
+		Si hicimos todo correctamente y nos acepto la contraseña veremos la siguiente pantalla de bienvenida:
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.1]{/home/diego/Imágenes/Actividad2/bienvenida.png}
+			\caption{Pantalla de bienvenida}
+		\end{figure}
+		Y con eso terminamos el registro en la plataforma.
+	\section{Conclusiones}
+	No he probado el servicio pero entiendo que sera el servidor donde haremos el deploy de nuestra aplicación web para tener una mejor control del desarrollo.
+	\section{Referencias}
+	https://estebanromero.com/herramientas-emprender-desarrollar-proyectos/heroku-una-plataforma-para-la-creacion-de-aplicaciones/
+\end{document} 
