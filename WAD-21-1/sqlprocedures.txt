@@ -1,0 +1,5 @@
+1.- spInsertarCategoria(nombre varchar(50),descripcion varchar(150))
+2.- spActualizarCategoria(nombre varchar(50), descripcion varchar(150), id int)
+3.- spBorrarCategoria(id int)
+4.- spMostrarCategorias()
+5.- spVerCategoria(id int)
