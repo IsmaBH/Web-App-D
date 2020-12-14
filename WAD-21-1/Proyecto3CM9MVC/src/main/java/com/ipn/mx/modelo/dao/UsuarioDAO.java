@@ -5,7 +5,7 @@
  */
 package com.ipn.mx.modelo.dao;
 
-import com.ipn.mx.modelo.dto.CategoriaDTO;
+import com.ipn.mx.modelo.dto.UsuarioDTO;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,16 +23,14 @@ import javax.sql.DataSource;
  *
  * @author root
  */
-public class CategoriaDAO {
-
-    private static final String SQL_INSERT = "(call spInsertarCategoria(?,?))";
-    private static final String SQL_UPDATE = "(call spActualizarCategoria(?,?,?))";
-    private static final String SQL_DELETE = "(call spBorrarCategoria(?))";
-    private static final String SQL_SELECT = "(call spVerCategoria(?))";
-    private static final String SQL_SELECT_ALL = "(call spMostrarCategoria())";
-
+public class UsuarioDAO {
+    private static final String SQL_INSERT = "(call spInsertarUsuario(?,?,?,?,?,?))";
+    private static final String SQL_UPDATE = "(call spActualizarUsuario(?,?,?,?,?,?,?))";
+    private static final String SQL_DELETE = "(call spBorrarUsuario(?))";
+    private static final String SQL_SELECT = "(call spVerUsuario(?))";
+    private static final String SQL_SELECT_ALL = "(call spMostrarUsuarios())";
+    
     private Connection con;
-
     private void obtenerConexion() {
         Context ic;
         Context ec;
@@ -46,14 +44,18 @@ public class CategoriaDAO {
             Logger.getLogger(CategoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public void create(CategoriaDTO dto) throws SQLException {
+    
+    public void create(UsuarioDTO dto) throws SQLException{
         obtenerConexion();
         CallableStatement cs = null;
         try {
             cs = con.prepareCall(SQL_INSERT);
-            cs.setString(1, dto.getEntidad().getNombreCategoria());
-            cs.setString(2, dto.getEntidad().getDescripcionCategoria());
+            cs.setString(1, dto.getEntidad().getNombre());
+            cs.setString(2, dto.getEntidad().getPaterno());
+            cs.setString(3, dto.getEntidad().getMaterno());
+            cs.setString(4, dto.getEntidad().getEmail());
+            cs.setString(5, dto.getEntidad().getNombreUsuario());
+            cs.setString(6, dto.getEntidad().getClaveUsuario());
             cs.executeUpdate();
         } finally {
             if (cs != null) {
@@ -64,15 +66,19 @@ public class CategoriaDAO {
             }
         }
     }
-
-    public void update(CategoriaDTO dto) throws SQLException {
+    
+    public void update(UsuarioDTO dto) throws SQLException {
         obtenerConexion();
         CallableStatement cs = null;
         try {
             cs = con.prepareCall(SQL_UPDATE);
-            cs.setString(1, dto.getEntidad().getNombreCategoria());
-            cs.setString(2, dto.getEntidad().getDescripcionCategoria());
-            cs.setInt(3, dto.getEntidad().getIdCategoria());
+            cs.setString(1, dto.getEntidad().getNombre());
+            cs.setString(2, dto.getEntidad().getPaterno());
+            cs.setString(3, dto.getEntidad().getMaterno());
+            cs.setString(4, dto.getEntidad().getEmail());
+            cs.setString(5, dto.getEntidad().getNombreUsuario());
+            cs.setString(6, dto.getEntidad().getClaveUsuario());
+            cs.setInt(7, dto.getEntidad().getIdUsuario());
             cs.executeUpdate();
         } finally {
             if (cs != null) {
@@ -83,13 +89,13 @@ public class CategoriaDAO {
             }
         }
     }
-
-    public void delete(CategoriaDTO dto) throws SQLException {
+    
+    public void delete(UsuarioDTO dto) throws SQLException {
         obtenerConexion();
         CallableStatement cs = null;
         try {
             cs = con.prepareCall(SQL_DELETE);
-            cs.setInt(1, dto.getEntidad().getIdCategoria());
+            cs.setInt(1, dto.getEntidad().getIdUsuario());
             cs.executeUpdate();
         } finally {
             if (cs != null) {
@@ -100,18 +106,18 @@ public class CategoriaDAO {
             }
         }
     }
-
-    public CategoriaDTO read(CategoriaDTO dto) throws SQLException {
+    
+    public UsuarioDTO read(UsuarioDTO dto) throws SQLException {
         obtenerConexion();
         CallableStatement cs = null;
         ResultSet rs = null;
         try{
             cs = con.prepareCall(SQL_SELECT);
-            cs.setInt(1, dto.getEntidad().getIdCategoria());
+            cs.setInt(1, dto.getEntidad().getIdUsuario());
             rs = cs.executeQuery();
             List resultados = obtenerResultados(rs);
             if(resultados.size() > 0){
-                return (CategoriaDTO) resultados.get(0);
+                return (UsuarioDTO) resultados.get(0);
             }else{
                 return null;
             }
@@ -127,6 +133,7 @@ public class CategoriaDAO {
             }
         }
     }
+    
     public List readAll() throws SQLException {
         obtenerConexion();
         CallableStatement cs = null;
@@ -152,14 +159,18 @@ public class CategoriaDAO {
             }
         }
     }
-
+    
     private List obtenerResultados(ResultSet rs) throws SQLException{
         List resultados = new ArrayList();
         while(rs.next()){
-            CategoriaDTO dto = new CategoriaDTO();
-            dto.getEntidad().setIdCategoria(rs.getInt("idCategoria"));
-            dto.getEntidad().setNombreCategoria(rs.getString("nombreCategoria"));
-            dto.getEntidad().setDescripcionCategoria(rs.getString("descripcionCategoria"));
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.getEntidad().setIdUsuario(rs.getInt("idUsuario"));
+            dto.getEntidad().setNombre(rs.getString("nombre"));
+            dto.getEntidad().setPaterno(rs.getString("paterno"));
+            dto.getEntidad().setMaterno(rs.getString("materno"));
+            dto.getEntidad().setEmail(rs.getString("email"));
+            dto.getEntidad().setNombreUsuario(rs.getString("nombreUsuario"));
+            dto.getEntidad().setClaveUsuario(rs.getString("claveUsuario"));
             resultados.add(dto);
         }
         return resultados;
